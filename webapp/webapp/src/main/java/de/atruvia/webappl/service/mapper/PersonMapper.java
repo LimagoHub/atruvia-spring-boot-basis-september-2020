@@ -1,4 +1,4 @@
-package de.atruvia.webappl.service;
+package de.atruvia.webappl.service.mapper;
 
 import de.atruvia.webappl.repository.entities.PersonEntity;
 import de.atruvia.webappl.service.model.Person;

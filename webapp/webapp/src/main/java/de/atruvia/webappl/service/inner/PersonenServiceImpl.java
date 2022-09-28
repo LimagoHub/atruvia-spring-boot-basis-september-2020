@@ -1,9 +1,10 @@
 package de.atruvia.webappl.service.inner;
 
 import de.atruvia.webappl.repository.PersonenRepository;
-import de.atruvia.webappl.service.PersonMapper;
+
 import de.atruvia.webappl.service.PersonenService;
 import de.atruvia.webappl.service.PersonenServiceException;
+import de.atruvia.webappl.service.mapper.PersonMapper;
 import de.atruvia.webappl.service.model.Person;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
