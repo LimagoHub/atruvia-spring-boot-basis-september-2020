@@ -62,6 +62,7 @@ public class PersonenController {
     public ResponseEntity<Void> insert(@RequestBody PersonDto person,  final UriComponentsBuilder builder) {// Dritte Moeglichkeit Werte an Rest zu Uebergeben
         person.setId(UUID.randomUUID().toString());
         final var uri = builder.path("/v1/personen/{id}").buildAndExpand(person.getId());
+        // Sysout simuliert eine Änderung in der Datenbank
         System.out.println(person +  " wird gespeichert");
         return ResponseEntity.created(uri.toUri()).build();
     }
@@ -69,6 +70,7 @@ public class PersonenController {
     @PutMapping(path="/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> update(@Valid @RequestBody PersonDto person, @PathVariable String id) {
         if("012345678901234567890123456789012345".equals(id)){
+
             System.out.println(person + " wird geaendert");
             return ResponseEntity.ok().build();
         }
@@ -76,6 +78,8 @@ public class PersonenController {
     }
 
     // Ersatzget wenn Parameter OBJEKT
+
+    // Keine Änderung auf der Serverseite
     @PostMapping(value = "/convert-to-upper", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonDto> toUpper(@RequestBody PersonDto personDto) {
         personDto.setVorname(personDto.getVorname().toUpperCase());
